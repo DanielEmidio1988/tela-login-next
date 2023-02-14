@@ -1,36 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+import styled from "styled-components";
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
-section{
+export const MainContainer = styled.div`
     background-color: #BB2649;
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    img{
+        border-radius: 50%;
+        width: 60px;
+    }
+`
 
-.boxLogin{
+export const BoxLogin = styled.div`
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 4px 4px 4px #9E213E;
     width: 50%;
-    height: 70%
-}
-
-#errorLogin{
-    font-size: 12px;
-    color: #BB2649;
-}
-
- 
-    .boxlogintitle{
+    height: 60%;
+    #errorLogin{
+        font-size: 12px;
+        color: #BB2649;
+    }
+    
+    div:first-child{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -38,65 +32,31 @@ section{
         height: 40%;
     }
    
-    .boxloginuser{
+    div:last-child{
         display: flex;
         justify-content: flex-start;
         align-items:center;
         gap: 10px;
         flex-direction: column;
         height: 60%;
-    }
-
-        #registerbox{
+        #rememberme{
             width: 100%;
             font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin-bottom: 2vh;
-        }
-        #checkbox{
+            
+            input{
                 height: 20px;
+            }
         }
-
-        #socialogin{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-            gap: 2vw;
-            color: #BB2649;
-        }
-
-        a{
-            text-decoration: none;
-            color: #BB2649;
-            font-weight: bold;
-        }
-
-        #buttonSociaLogin{
-            width: 80px;
-            border-radius: 8px;
-            background-color: #BB2649;
-            height: 30px;
-        }
-        
         input{
             border-radius: 8px;
             height: 6vh;
             width: 50%;
-            padding-left: 20px;
-            border: none;
-            background-color: #f2f2f2;
-            
+            padding-left: 4px;
+            border: ${props=>props.validate ? '1px solid #BB2649': 'none'};
         }
-
         input:hover{
             cursor: pointer;
             border-bottom: 2px solid #F06091;
-            background-color: #F0F0F0;
         }
         input:focus{
             border-bottom: 2px solid #BB2649;        
@@ -115,4 +75,4 @@ section{
             cursor: pointer;
             background-color: #BB2649;
         }
-   
+    }`

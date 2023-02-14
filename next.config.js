@@ -1,6 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const withCSS = require('@zeit/next-css')
+const withImages = require('next-images')
 
-module.exports = nextConfig
+module.exports = withCSS(withImages({
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require('./src/server/database')
+    }
+    return config
+  },
+  env: {
+    API_URL: 'http://localhost:3000/api'
+  }
+}))
+
